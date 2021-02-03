@@ -45,6 +45,9 @@ end
 
 def problem
 <<-EOF
+
+
+
                                                                    🤔 「システム開発の発注で悩んでいる」
                                                                    😨 「システム開発を炎上や失敗から守りたい」
                                                                    😖 「開発中のシステムが心配」
@@ -53,14 +56,15 @@ def problem
                                                                    システム開発の攻略法をお伝えするチャンネルです。
 
 
-
-
-
 EOF
 end
 
-puts title.colorize(color: :green, background: :black)
-sleep 0.5
-puts sub_title.colorize(color: :light_green, background: :black)
-sleep 0.5
-puts problem.colorize(:cyan)
+def print_each(str, option)
+  str.chars { |ch|
+    sleep 0.000001
+    print ch.send(:colorize, {color: option[:color]})
+  }
+end
+
+print_each(title,      {color: :green})
+print_each(sub_title,  {color: :light_green})
